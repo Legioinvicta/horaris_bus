@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,10 +42,12 @@
                         <svg class="size-5">
                           <use xlink:href="#bus-red"></use>
                         </svg>
-                        <div class="text-lg font-bold text-gray-800 group-hover:text-gray-700">Centelles - Fabra i Puig</div>
+                        <div class="flex flex-col leading-3">
+                            <div class="text-lg font-bold text-gray-800 group-hover:text-gray-700">Centelles - Fabra i Puig</div>
+                            <div class="text-sm font-medium "><span class="text-rose-600">Feiners</span> - <span class="text-blue-600">Festius</span></div>
+                        </div>
                     </div>
                     <div class="flex items-center">
-                        <span class="text-sm font-medium  mr-3 py-1"><span class="text-rose-600">Feiners</span> - <span class="text-blue-600">Festius</span></span>
                         <svg class="accordion-arrow w-6 h-6 text-gray-500 group-hover:text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
@@ -59,32 +61,32 @@
                                 <button class="tab-button px-4 py-2 text-sm font-medium text-blue-600 border-b-2 border-blue-500 focus:outline-none" data-tab="1">Feiners</button>
                                 <button class="tab-button px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 focus:outline-none" data-tab="2">Festius</button>
                             </div>
-                            <div class="tab-content p-4" data-content="1">
+                            <div class="tab-content" data-content="1">
                                 <div class="flex justify-center">
-                                    <table class="table-fixed border-collapse border border-gray-400 mt-3">
-                                       <caption class="caption-top py-2 text-base font-semibold">
-                                           Autobusos enllacats en tren a Centelles destinació Barcelona
-                                       </caption>
-                                       <thead>
-                                         <tr class="bg-gray-100">
-                                            <th colspan="2" class="border border-gray-300 text-center p-2">
-                                                <svg class="size-8 mx-auto">
-                                                  <use xlink:href="#rodalies"></use>
-                                                </svg>
-                                            </th>
-                                            <th colspan="2" class="border border-gray-300 p-2">
-                                                <svg class="size-8 mx-auto">
-                                                  <use xlink:href="#bus-red"></use>
-                                                </svg>
-                                            </th>
-                                          </tr>
-                                           <tr class="p-8">
-                                             <th class="w-35 text-red-800 border border-gray-300">Origen</th>
-                                             <th class="w-25 leading-5 py-3 text-red-800 border border-gray-300">Arribada<br>Centelles</th>
-                                             <th class="w-25 leading-5 text-red-500 border border-gray-300">Sortida<br>Centelles</th>
-                                             <th class="w-25 leading-5 text-green-700 border border-gray-300">Arribada<br>Fabra i Puig</th>
-                                           </tr>
-                                       </thead>
+                                    <table class="table-auto border-collapse border border-gray-400 mt-3">
+                                        <caption class="caption-top py-2 text-base font-semibold">
+                                            Autobusos enllacats en tren a Centelles destinació Barcelona
+                                        </caption>
+                                        <thead>
+                                            <tr class="bg-gray-100">
+                                                <th colspan="2" class="border border-gray-300 text-center p-2">
+                                                    <svg class="size-8 mx-auto">
+                                                        <use xlink:href="#rodalies"></use>
+                                                    </svg>
+                                                </th>
+                                                <th colspan="2" class="border border-gray-300 p-2">
+                                                    <svg class="size-8 mx-auto">
+                                                        <use xlink:href="#bus-red"></use>
+                                                    </svg>
+                                                </th>
+                                            </tr>
+                                            <tr class="text-sm">
+                                                <th class="w-35 text-red-800 border border-gray-300">Origen</th>
+                                                <th class="w-25 leading-4 py-3 text-red-800 border border-gray-300">Arribada<br>Centelles</th>
+                                                <th class="w-25 leading-4 py-3 text-red-500 border border-gray-300">Sortida<br>Centelles</th>
+                                                <th class="w-25 leading-4 py-3 text-green-700 border border-gray-300">Arribada<br>Fabra i Puig</th>
+                                            </tr>
+                                        </thead>
                                        <tbody>
                                            <tr class="bg-rose-100">
                                                <td class="w-35 pl-2 border border-gray-300">Vic</td>
@@ -306,7 +308,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="tab-content p-4" data-content="2">
+                            <div class="tab-content" data-content="2">
                                 <div class="flex justify-center">
                                     <table class="table-fixed border-collapse border border-gray-400 mt-3">
                                        <caption class="caption-top py-2 text-base font-semibold">
@@ -1167,47 +1169,7 @@
                 </div>
             </div>
 
-            <!-- Item 6 -->
-            <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-                <button class="accordion-btn w-full px-6 py-3 text-left flex justify-between items-center hover:bg-sky-50 transition-colors duration-300 group">
-                    <div class="flex flex-row items-center gap-3">
-                        <span id="count-cat-06" class="bg-yellow-200 text-gray-700 font-semibold px-2 py-2 rounded-full text-sm">0</span>
-                        <span class="text-xl font-bold text-gray-800 group-hover:text-sky-700">Thumbprint</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="text-sm font-medium text-sky-600 mr-3 bg-sky-100 px-2 py-1 rounded-full">Light</span>
-                        <svg class="accordion-arrow w-6 h-6 text-gray-500 group-hover:text-sky-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                </button>
-                <div class="accordion-content overflow-hidden transition-all duration-300 max-h-0">
-                    <div class="px-6 pb-5 text-gray-600 max-h-80 overflow-y-auto">
 
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 7 -->
-            <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-                <button class="accordion-btn w-full px-6 py-3 text-left flex justify-between items-center hover:bg-orange-50 transition-colors duration-300 group">
-                    <div class="flex flex-row items-center gap-3">
-                        <span id="count-cat-07" class="bg-yellow-200 text-gray-700 font-semibold px-2 py-2 rounded-full text-sm">0</span>
-                        <span class="text-xl font-bold text-gray-800 group-hover:text-orange-700">Whiteboard</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="text-sm font-medium text-orange-600 mr-3 bg-orange-100 px-2 py-1 rounded-full">Semibold</span>
-                        <svg class="accordion-arrow w-6 h-6 text-gray-500 group-hover:text-orange-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                </button>
-                <div class="accordion-content overflow-hidden transition-all duration-300 max-h-0">
-                    <div class="px-6 pb-5 text-gray-600 max-h-80 overflow-y-auto">
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

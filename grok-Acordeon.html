@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Horaris Bus</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+</head>
+<body class="font-[Nunito_Sans] bg-gray-50 font-sans">
+    <!-- Sprites ICONES -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+        <symbol id="rodalies" viewBox="0 0 46.988 46.988">
+            <defs>
+                <clipPath id="a" clipPathUnits="userSpaceOnUse">
+                    <path d="M0 841.89h595.276V0H0Z"/>
+                </clipPath>
+            </defs>
+            <g clip-path="url(#a)" transform="matrix(.35278 0 0 -.35278 -69.474 253.745)">
+                <path d="M286.332 620.787h133.195V487.592H286.332Z" style="fill:#f47216;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="translate(-89.399 98.49)"/>
+                <path d="M0 0h23.918v27.072H36.64c9.461 0 10.113-7.719 10.765-15.112.326-4.023.761-8.047 1.957-11.96h23.921C71.108 3.588 71 12.829 70.673 16.635c-.87 9.678-4.893 16.853-11.416 19.353 7.937 2.937 11.633 11.418 11.633 19.463 0 14.679-11.743 22.182-25.334 22.182H0Zm24.463 59.148h11.201c9.133 0 11.85-2.826 11.85-7.719 0-6.96-6.088-7.721-10.546-7.721H24.463Z" style="fill:#fff;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="translate(252.692 618.556)"/>
+            </g>
+        </symbol>
+        <symbol id="bus-red" viewBox="0 0 118.533 135.467">
+            <path d="M71.173 80.698c-14.023 0-25.4 11.377-25.4 25.4v76.2c0 7.885 5.397 14.526 12.7 16.404v8.996a8.46 8.46 0 0 0 8.467 8.467h4.233a8.46 8.46 0 0 0 8.467-8.467v-8.467h50.8v8.467a8.46 8.46 0 0 0 8.466 8.467h4.234a8.46 8.46 0 0 0 8.466-8.467v-8.996c7.303-1.878 12.7-8.52 12.7-16.404v-76.2c0-14.023-11.377-25.4-25.4-25.4zm-8.467 46.567a8.46 8.46 0 0 1 8.467-8.467H98.69v29.633H71.173a8.46 8.46 0 0 1-8.467-8.466zm48.684 21.166v-29.633h27.516a8.46 8.46 0 0 1 8.467 8.467v12.7a8.46 8.46 0 0 1-8.467 8.466zm-40.217 16.934a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.467-8.467 8.46 8.46 0 0 1 8.467-8.466m67.733 0a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.466-8.467 8.46 8.46 0 0 1 8.466-8.466M85.99 99.748a6.335 6.335 0 0 1 6.35-6.35h25.4a6.335 6.335 0 0 1 6.35 6.35 6.335 6.335 0 0 1-6.35 6.35h-25.4a6.335 6.335 0 0 1-6.35-6.35" style="fill:#c5312c;fill-opacity:1;stroke-width:.264583" transform="translate(-45.773 -80.698)"/>
+        </symbol>
+        <symbol id="bus-blue" viewBox="0 0 118.533 135.467">
+            <path d="M71.173 80.698c-14.023 0-25.4 11.377-25.4 25.4v76.2c0 7.885 5.397 14.526 12.7 16.404v8.996a8.46 8.46 0 0 0 8.467 8.467h4.233a8.46 8.46 0 0 0 8.467-8.467v-8.467h50.8v8.467a8.46 8.46 0 0 0 8.466 8.467h4.234a8.46 8.46 0 0 0 8.466-8.467v-8.996c7.303-1.878 12.7-8.52 12.7-16.404v-76.2c0-14.023-11.377-25.4-25.4-25.4zm-8.467 46.567a8.46 8.46 0 0 1 8.467-8.467H98.69v29.633H71.173a8.46 8.46 0 0 1-8.467-8.466zm48.684 21.166v-29.633h27.516a8.46 8.46 0 0 1 8.467 8.467v12.7a8.46 8.46 0 0 1-8.467 8.466zm-40.217 16.934a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.467-8.467 8.46 8.46 0 0 1 8.467-8.466m67.733 0a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.466-8.467 8.46 8.46 0 0 1 8.466-8.466M85.99 99.748a6.335 6.335 0 0 1 6.35-6.35h25.4a6.335 6.335 0 0 1 6.35 6.35 6.335 6.335 0 0 1-6.35 6.35h-25.4a6.335 6.335 0 0 1-6.35-6.35" style="fill:#2a64ad;fill-opacity:1;stroke-width:.264583" transform="translate(-45.773 -80.698)"/>
+        </symbol>
+        <symbol id="bus-sky" viewBox="0 0 118.533 135.467">
+            <path d="M71.173 80.698c-14.023 0-25.4 11.377-25.4 25.4v76.2c0 7.885 5.397 14.526 12.7 16.404v8.996a8.46 8.46 0 0 0 8.467 8.467h4.233a8.46 8.46 0 0 0 8.467-8.467v-8.467h50.8v8.467a8.46 8.46 0 0 0 8.466 8.467h4.234a8.46 8.46 0 0 0 8.466-8.467v-8.996c7.303-1.878 12.7-8.52 12.7-16.404v-76.2c0-14.023-11.377-25.4-25.4-25.4zm-8.467 46.567a8.46 8.46 0 0 1 8.467-8.467H98.69v29.633H71.173a8.46 8.46 0 0 1-8.467-8.466zm48.684 21.166v-29.633h27.516a8.46 8.46 0 0 1 8.467 8.467v12.7a8.46 8.46 0 0 1-8.467 8.466zm-40.217 16.934a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.467-8.467 8.46 8.46 0 0 1 8.467-8.466m67.733 0a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.466-8.467 8.46 8.46 0 0 1 8.466-8.466M85.99 99.748a6.335 6.335 0 0 1 6.35-6.35h25.4a6.335 6.335 0 0 1 6.35 6.35 6.335 6.335 0 0 1-6.35 6.35h-25.4a6.335 6.335 0 0 1-6.35-6.35" style="fill:#5eaadd;fill-opacity:1;stroke-width:.264583" transform="translate(-45.773 -80.698)"/>
+        </symbol>
+    </svg>
+
+    <div class="max-w-4xl mx-auto p-6">
+
+    <!-- Acordeón -->
+    <div class="space-y-4" id="accordion">
+
+        <!-- Sección 1: Madrid-Barcelona -->
+        <div class="bg-white rounded-lg shadow">
+            <button data-accordion-header class="w-full text-left px-6 py-4 font-semibold text-gray-800 bg-gray-100 hover:bg-gray-200 transition flex justify-between items-center">
+                <span>1. Madrid ↔ Barcelona</span>
+                <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div data-accordion-content class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="p-6 w-full">
+                    <!-- Dropdowns en una línea -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <!-- Tipo de día -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de día</label>
+                            <div class="relative">
+                                <button data-dropdown-toggle="dia1" class="w-full px-4 py-2 text-left bg-white border border-gray-300 rounded-md shadow-sm flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                    <span data-dropdown-value="dia1">Laborables</span>
+                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                </button>
+                                <div data-dropdown="dia1" class="absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-10 hidden">
+                                    <button data-dropdown-option="dia1" data-value="laborables" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Laborables</button>
+                                    <button data-dropdown-option="dia1" data-value="festivos" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Festivos</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Tipo de viaje -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de viaje</label>
+                            <div class="relative">
+                                <button data-dropdown-toggle="viaje1" class="w-full px-4 py-2 text-left bg-white border border-gray-300 rounded-md shadow-sm flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                    <span data-dropdown-value="viaje1">Ida</span>
+                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                </button>
+                                <div data-dropdown="viaje1" class="absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-10 hidden">
+                                    <button data-dropdown-option="viaje1" data-value="ida" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Ida</button>
+                                    <button data-dropdown-option="viaje1" data-value="vuelta" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Vuelta</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tablas de horarios -->
+                    <div class="mt-6 overflow-x-auto">
+                        <!-- Laborables - Ida -->
+                        <div data-table="laborables-ida-1" class="hidden">
+                            <div class="max-h-64 min-h-32 overflow-y-auto border border-gray-200 rounded-md">
+                                <table class="w-full min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50 sticky top-0">
+                                        <tr>
+                                            <th class="px-4 py-3 text-left text-center text-xs font-medium text-gray-500 uppercase">Origen</th>
+                                            <th class="px-4 py-3 text-left text-center text-xs font-medium text-gray-500 uppercase">Arribada<br>Centelles</th>
+                                            <th class="px-4 py-3 text-left text-center text-xs font-medium text-gray-500 uppercase">Sortida<br>Centelles</th>
+                                            <th class="px-4 py-3 text-left text-center text-xs font-medium text-gray-500 uppercase">Arribada<br>Fabra i Puig</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="min-h-32 bg-white divide-y divide-gray-200"">
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">05:22</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">05:30</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">06:26</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">05:47</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">06:05</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">07:01</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Ripoll</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">06:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">06:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">07:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">06:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">06:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">07:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Ripoll</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">07:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">07:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">08:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Puigcerdá</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">07:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">07:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">08:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Ripoll</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">08:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">08:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">09:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">08:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">08:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">09:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Puigcerdá</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">09:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">09:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">10:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">09:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">09:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">10:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">---</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">---</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">10:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">11:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Puigcerdá</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">10:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">10:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">11:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">---</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">---</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">11:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">12:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Ribes de Freser</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">11:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">11:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">12:46</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">---</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">---</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">12:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">13:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">La Tor de Q</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">12:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">12:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">13:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">13:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">13:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">14:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Ripoll</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">13:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">13:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">14:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">14:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">14:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">15:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Ripoll</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">14:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">14:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">15:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">15:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">15:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">16:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">La Tor de Q</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">15:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">15:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">16:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">---</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">---</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">16:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">17:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Ripoll</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">16:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">16:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">17:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">17:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">17:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">18:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Ripoll</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">17:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">17:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">18:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">18:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">18:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">19:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">La Tor de Q</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">18:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">18:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">19:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">19:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">19:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">20:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Ripoll</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">19:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">19:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">20:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">20:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">20:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">21:16</td>
+                                        </tr class="bg-gray-100">
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">20:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">20:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">21:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">La Tor de Q</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">21:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">21:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">22:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">21:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">21:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">22:46</td>
+                                        </tr>
+                                       <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Ripoll</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">22:11</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">22:20</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">23:16</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">Vic</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">22:41</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">22:50</td>
+                                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-600">23:46</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Laborables - Vuelta -->
+                        <div data-table="laborables-vuelta-1" class="hidden">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hora</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Origen → Destino</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Duración</th></tr></thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                  <tr class="hover:bg-gray-50"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">07:00</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Barcelona → Madrid</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">2h 50m</td></tr>
+                                  <tr class="hover:bg-gray-50"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">11:15</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Barcelona → Madrid</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">2h 45m</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Festivos - Ida -->
+                        <div data-table="festivos-ida-1" class="hidden">
+                          <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hora</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Origen → Destino</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Duración</th></tr></thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                              <tr class="hover:bg-gray-50"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">07:00</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Madrid → Barcelona</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">3h 00m</td></tr>
+                              <tr class="hover:bg-gray-50"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">11:30</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Madrid → Barcelona</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">3h 05m</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        
+                        <!-- Festivos - Vuelta -->
+                        <div data-table="festivos-vuelta-1" class="hidden">
+                          <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hora</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Origen → Destino</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Duración</th></tr></thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                              <tr class="hover:bg-gray-50"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">08:00</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Barcelona → Madrid</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">3h 00m</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+          </div>
+      </div>
+
+      <!-- Sección 2: Poblaciones -->
+      <div class="bg-white rounded-lg shadow">
+        <button data-accordion-header class="w-full text-left px-6 py-4 font-semibold text-gray-800 bg-gray-100 hover:bg-gray-200 transition flex justify-between items-center">
+          <span>2. Poblaciones (Garriga, Ripollet, Montcada)</span>
+          <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div data-accordion-content class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+          <div class="p-6 space-y-6">
+
+            <!-- Dropdowns en una línea -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Tipo de día -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de día</label>
+                <div class="relative">
+                  <button data-dropdown-toggle="dia2" class="w-full px-4 py-2 text-left bg-white border border-gray-300 rounded-md shadow-sm flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <span data-dropdown-value="dia2">Laborables</span>
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </button>
+                  <div data-dropdown="dia2" class="absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-10 hidden">
+                    <button data-dropdown-option="dia2" data-value="laborables" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Laborables</button>
+                    <button data-dropdown-option="dia2" data-value="festivos" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Festivos</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tipo de viaje -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de viaje</label>
+                <div class="relative">
+                  <button data-dropdown-toggle="viaje2" class="w-full px-4 py-2 text-left bg-white border border-gray-300 rounded-md shadow-sm flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <span data-dropdown-value="viaje2">Ida</span>
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </button>
+                  <div data-dropdown="viaje2" class="absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-10 hidden">
+                    <button data-dropdown-option="viaje2" data-value="ida" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Ida</button>
+                    <button data-dropdown-option="viaje2" data-value="vuelta" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Vuelta</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Población -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Población</label>
+                <div class="relative">
+                  <button data-dropdown-toggle="poblacion" class="w-full px-4 py-2 text-left bg-white border border-gray-300 rounded-md shadow-sm flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <span data-dropdown-value="poblacion">Garriga</span>
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </button>
+                  <div data-dropdown="poblacion" class="absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-10 hidden">
+                    <button data-dropdown-option="poblacion" data-value="garriga" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Garriga</button>
+                    <button data-dropdown-option="poblacion" data-value="ripollet" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Ripollet</button>
+                    <button data-dropdown-option="poblacion" data-value="montcada" class="block w-full text-left px-4 py-2 text-sm hover:bg-indigo-50">Montcada</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tablas de horarios (ejemplo: solo 2 por población) -->
+            <div class="mt-6 overflow-x-auto">
+              <!-- Garriga - Laborables - Ida -->
+              <div data-table="laborables-ida-garriga" class="hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                      <tr>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hora</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Origen → Destino</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Duración</th>
+                      </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">07:10</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Barcelona → Garriga</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">35m</td></tr>
+                    <tr class="hover:bg-gray-50"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">09:20</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Barcelona → Garriga</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">38m</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Garriga - Laborables - Vuelta -->
+              <div data-table="laborables-vuelta-garriga" class="hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hora</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Origen → Destino</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Duración</th></tr></thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">16:45</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Garriga → Barcelona</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">37m</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Ripollet - Laborables - Ida -->
+              <div data-table="laborables-ida-ripollet" class="hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hora</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Origen → Destino</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Duración</th></tr></thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">06:55</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Barcelona → Ripollet</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">25m</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Montcada - Festivos - Vuelta -->
+              <div data-table="festivos-vuelta-montcada" class="hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hora</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Origen → Destino</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Duración</th></tr></thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">17:30</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Montcada → Barcelona</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">30m</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Puedes añadir más tablas con data-table="dia-viaje-poblacion" -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección 3 -->
+      <div class="bg-white rounded-lg shadow">
+        <button 
+          data-accordion-header
+          class="w-full text-left px-6 py-4 font-semibold text-gray-800 bg-gray-100 hover:bg-gray-200 transition rounded-b-lg flex justify-between items-center">
+          <span>3. Resumen y Pago</span>
+          <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div data-accordion-content class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+          <div class="p-6">
+            <p class="text-gray-600">Resumen del viaje y opciones de pago.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // === CONFIGURACIÓN ===
+    const DEFAULT_OPEN_SECTION = 1;        // 1, 2, 3 o null
+    const CLOSE_OTHERS_ON_OPEN = true;     // true = solo una abierta
+
+    // Estado de cada sección
+    const state = {
+      1: { dia: 'laborables', viaje: 'ida' },
+      2: { dia: 'laborables', viaje: 'ida', poblacion: 'garriga' }
+    };
+
+    // Inicializar
+    document.addEventListener('DOMContentLoaded', () => {
+      if (DEFAULT_OPEN_SECTION) {
+        const headers = document.querySelectorAll('[data-accordion-header]');
+        const target = headers[DEFAULT_OPEN_SECTION - 1];
+        if (target) openSection(target);
+      }
+      updateTables();
+    });
+
+    // === ACORDEÓN ===
+    document.getElementById('accordion').addEventListener('click', (e) => {
+      const header = e.target.closest('[data-accordion-header]');
+      if (!header) return;
+
+      const content = header.nextElementSibling;
+      const isOpen = content.classList.contains('max-h-96');
+
+      if (isOpen) {
+        closeSection(header);
+      } else {
+        if (CLOSE_OTHERS_ON_OPEN) {
+          document.querySelectorAll('[data-accordion-header]').forEach(h => {
+            if (h !== header && h.nextElementSibling.classList.contains('max-h-96')) {
+              closeSection(h);
+            }
+          });
+        }
+        openSection(header);
+      }
+    });
+
+    function openSection(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('svg');
+      content.classList.remove('max-h-0');
+      content.classList.add('max-h-96');
+      icon.classList.add('rotate-180');
+    }
+
+    function closeSection(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('svg');
+      content.classList.remove('max-h-96');
+      content.classList.add('max-h-0');
+      icon.classList.remove('rotate-180');
+    }
+
+    // === DROPDOWNS ===
+    document.addEventListener('click', (e) => {
+      // Toggle dropdown
+      const toggle = e.target.closest('[data-dropdown-toggle]');
+      if (toggle) {
+        e.stopPropagation();
+        const id = toggle.dataset.dropdownToggle;
+        const dropdown = document.querySelector(`[data-dropdown="${id}"]`);
+        dropdown.classList.toggle('hidden');
+        return;
+      }
+
+      // Seleccionar opción
+      const option = e.target.closest('[data-dropdown-option]');
+      if (option) {
+        const id = option.dataset.dropdownOption;
+        const value = option.dataset.value;
+        const display = document.querySelector(`[data-dropdown-value="${id}"]`);
+        const text = option.textContent.trim();
+        display.textContent = text;
+
+        // Guardar estado
+        const section = option.closest('[data-accordion-content]').previousElementSibling;
+        const index = Array.from(document.querySelectorAll('[data-accordion-header]')).indexOf(section) + 1;
+        if (index === 1) {
+          if (id === 'dia1') state[1].dia = value;
+          if (id === 'viaje1') state[1].viaje = value;
+        } else if (index === 2) {
+          if (id === 'dia2') state[2].dia = value;
+          if (id === 'viaje2') state[2].viaje = value;
+          if (id === 'poblacion') state[2].poblacion = value;
+        }
+
+        document.querySelector(`[data-dropdown="${id}"]`).classList.add('hidden');
+        updateTables();
+      }
+
+      // Cerrar dropdowns al hacer clic fuera
+      if (!e.target.closest('[data-dropdown-toggle]') && !e.target.closest('[data-dropdown]')) {
+        document.querySelectorAll('[data-dropdown]').forEach(d => d.classList.add('hidden'));
+      }
+    });
+
+    // === ACTUALIZAR TABLAS ===
+    function updateTables() {
+      // Sección 1
+      const s1 = state[1];
+      document.querySelectorAll('[data-table^="laborables-"][data-table$="-1"], [data-table^="festivos-"][data-table$="-1"]').forEach(t => t.classList.add('hidden'));
+      const table1 = document.querySelector(`[data-table="${s1.dia}-${s1.viaje}-1"]`);
+      if (table1) table1.classList.remove('hidden');
+
+      // Sección 2
+      const s2 = state[2];
+      document.querySelectorAll('[data-table]').forEach(t => {
+        if (t.dataset.table.includes('-garriga') || t.dataset.table.includes('-ripollet') || t.dataset.table.includes('-montcada')) {
+          t.classList.add('hidden');
+        }
+      });
+      const table2 = document.querySelector(`[data-table="${s2.dia}-${s2.viaje}-${s2.poblacion}"]`);
+      if (table2) table2.classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>

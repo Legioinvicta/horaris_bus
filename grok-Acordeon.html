@@ -38,7 +38,13 @@
         <!-- Sección 1 -->
         <div class="accordion-section mb-2">
             <button class="accordion-header w-full bg-blue-500 text-white py-2 px-4 rounded-t flex justify-between items-center focus:outline-none">
-                <span>Sección 1</span>
+                <div class="flex flex-row gap-x-2 items-center justify-center">
+                    <svg class="size-7 mx-auto bg-white rounded-xl p-1">
+                        <use xlink:href="#bus-red"></use>
+                    </svg>
+                    <div>Centelles <span class="text-lg text-yellow-300">⇌</span> Fabra i Puig</div>
+                    <div class="px-1 rounded-xl bg-white text-xs font-semibold text-red-600">Directe</div>
+                </div>
                 <svg class="accordion-icon w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
@@ -47,524 +53,993 @@
                 <div class="flex flex-row space-x-4 mb-4">
                     <div class="w-1/2 relative">
                         <button class="dropdown-toggle w-full p-2 border border-gray-300 rounded bg-white text-left flex justify-between items-center">
-                            <span>Laborables</span>
+                            <span>Feiners</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
                         <div class="dropdown-menu hidden absolute w-full bg-white border border-gray-300 rounded shadow mt-1 z-10">
-                            <div class="dropdown-item p-2 hover:bg-gray-100 cursor-pointer">Laborables</div>
-                            <div class="dropdown-item p-2 hover:bg-gray-100 cursor-pointer">Festivos</div>
+                            <div class="dropdown-item p-2 hover:bg-gray-100 cursor-pointer">Feiners</div>
+                            <div class="dropdown-item p-2 hover:bg-gray-100 cursor-pointer">Festius</div>
                         </div>
                     </div>
                     <div class="w-1/2 relative">
                         <button class="dropdown-toggle w-full p-2 border border-gray-300 rounded bg-white text-left flex justify-between items-center">
-                            <span>Ida</span>
+                            <span>Anada</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
                         <div class="dropdown-menu hidden absolute w-full bg-white border border-gray-300 rounded shadow mt-1 z-10">
-                            <div class="dropdown-item p-2 hover:bg-gray-100 cursor-pointer">Ida</div>
-                            <div class="dropdown-item p-2 hover:bg-gray-100 cursor-pointer">Vuelta</div>
+                            <div class="dropdown-item p-2 hover:bg-gray-100 cursor-pointer">Anada</div>
+                            <div class="dropdown-item p-2 hover:bg-gray-100 cursor-pointer">Tornada</div>
                         </div>
                     </div>
                 </div>
                 <div class="train-schedules overflow-y-auto h-[400px]"><!-- Scroll vertical con altura para ~10 filas (asumiendo 40px por fila) -->
-                    <!-- Tabla para Laborables-Ida -->
-                    <div id="section1-Laborables-Ida" class="schedule-table hidden">
-                        <table class="w-full border-collapse bg-white rounded-lg shadow-sm">
-                            <thead class="bg-gray-100">
-                                <tr class="bg-gray-100 sticky top-0 bg-gray-100 text-xs font-medium">
-                                    <th class="border border-gray-300 p-1">Origen</th>
-                                    <th class="border border-gray-300 p-1">Arribada<br>Centelles</th>
-                                    <th class="border border-gray-300 p-1">Sortida<br>Centelles</th>
-                                    <th class="border border-gray-300 p-1">Arribada<br>Fabra i Puig</th>
+                    <!-- Tabla para Feiners-Anada -->
+                    <div id="section1-Feiners-Anada" class="schedule-table hidden">
+                        <table class="w-full border-collapse bg-white rounded-xl shadow-sm">
+                            <thead>
+                                <tr class="sticky top-0 bg-gray-100">
+                                    <th colspan="2" class="p-2 text-center bg-slate-300">
+                                        <svg class="size-6 mx-auto">
+                                            <use xlink:href="#rodalies"></use>
+                                        </svg>
+                                    </th>
+                                    <th colspan="2" class="p-2 text-center bg-gray-200">
+                                        <svg class="size-6 mx-auto">
+                                            <use xlink:href="#bus-red"></use>
+                                        </svg>
+                                    </th>
+                                </tr>
+                                <tr class="sticky top-[40px] bg-white text-xs font-medium">
+                                    <th class="p-1 text-left text-gray-700">Origen</th>
+                                    <th class="p-1 text-center text-gray-700">Arribada<br>Centelles</th>
+                                    <th class="p-1 text-center text-gray-700">Sortida<br>Centelles</th>
+                                    <th class="p-1 text-center text-gray-700">Arribada<br>Fabra i Puig</th>
                                 </tr>
                             </thead>
                             <tbody class="text-[0.85rem]">
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">05:22</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">05:30</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">06:26</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">05:22</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">05:30</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">06:26</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">05:47</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">06:05</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">07:01</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">05:47</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">06:05</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:01</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Ripoll</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">06:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">06:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">07:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">06:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">06:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">06:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">06:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">07:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">06:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">06:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Ripoll</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">07:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">07:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">08:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">07:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Puigcerdá</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">07:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">07:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">08:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Puigcerdá</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">07:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Ripoll</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">08:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">08:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">09:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">08:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">08:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">08:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">09:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">08:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Puigcerdá</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">09:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">09:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">10:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Puigcerdá</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">09:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">09:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">09:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">10:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">09:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">---</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">10:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">11:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">10:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Puigcerdá</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">10:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">10:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">11:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Puigcerdá</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">10:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">---</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">11:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">12:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">11:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">12:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Ribes de Freser</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">11:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">11:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">12:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ribes de Freser</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">11:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">12:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">---</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">12:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">13:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">12:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">La Tor de Q</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">12:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">12:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">13:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">12:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">12:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">13:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">13:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">14:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">13:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Ripoll</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">13:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">13:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">14:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">13:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">14:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">14:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">15:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">14:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Ripoll</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">14:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">14:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">15:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">14:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">15:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">15:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">16:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">15:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">La Tor de Q</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">15:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">15:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">16:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">15:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">---</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">16:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">17:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">16:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Ripoll</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">16:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">16:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">17:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">16:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">17:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">17:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">18:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">17:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Ripoll</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">17:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">17:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">18:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">17:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">18:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">18:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">19:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">18:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">La Tor de Q</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">18:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">18:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">19:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">18:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">19:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">19:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">20:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">19:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Ripoll</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">19:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">19:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">20:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">19:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">20:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">20:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">21:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">20:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:16</td>
                                 </tr class="bg-gray-100">
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">20:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">20:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">21:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">20:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">La Tor de Q</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">21:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">21:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">22:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">21:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">21:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">21:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">22:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">21:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:46</td>
                                 </tr>
                                 <tr class="bg-rose-100">
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Ripoll</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">22:11</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">22:20</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">23:16</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">22:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-left">Vic</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">22:41</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">22:50</td>
-                                    <td class="p-1 border-b border-gray-200 border-l-0 border-r-0 text-center">23:46</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">22:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:46</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <!-- Tabla para Laborables-Vuelta -->
-                    <div id="section1-Laborables-Vuelta" class="schedule-table hidden">
-                        <table class="w-full border-collapse border border-gray-300">
+                    <!-- Tabla para Feiners-Tornada -->
+                    <div id="section1-Feiners-Tornada" class="schedule-table hidden">
+                        <table class="w-full border-collapse bg-white rounded-xl shadow-sm">
                             <thead>
-                                <tr class="bg-gray-200">
-                                    <th class="border border-gray-300 p-2">Salida</th>
-                                    <th class="border border-gray-300 p-2">Llegada</th>
-                                    <th class="border border-gray-300 p-2">Duración</th>
+                                <tr class="sticky top-0 bg-gray-100">
+                                    <th colspan="2" class="p-2 text-center bg-gray-200">
+                                        <svg class="size-6 mx-auto">
+                                            <use xlink:href="#bus-red"></use>
+                                        </svg>
+                                    </th>
+                                    <th colspan="2" class="p-2 text-center bg-slate-300">
+                                        <svg class="size-6 mx-auto">
+                                            <use xlink:href="#rodalies"></use>
+                                        </svg>
+                                    </th>
+                                </tr>
+                                <tr class="sticky top-[40px] bg-white text-xs font-medium">
+                                    <th class="p-1 text-center text-gray-700">Fabra i Puig</th>
+                                    <th class="p-1 text-center text-gray-700">Arribada<br>Centelles</th>
+                                    <th class="p-1 text-center text-gray-700">Sortida<br>Centelles</th>
+                                    <th class="p-1 text-left text-gray-700">Destí<br></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="border border-gray-300 p-2 text-center">17:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">17:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                            <tbody class="text-[0.85rem]">
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">04:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">05:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">05:59</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">18:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">18:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">05:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">06:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">06:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">05:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">06:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q.</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">19:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">19:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">06:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">06:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ribes de Freser</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">20:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">20:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">07:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">07:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">21:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">21:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">08:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q.</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">08:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">22:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">22:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">09:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">09:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">23:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">23:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">10:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">10:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">00:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">00:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">11:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">12:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">12:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">01:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">01:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">12:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">13:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">02:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">02:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">13:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">14:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q.</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">03:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">03:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">14:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">15:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">04:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">04:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">15:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">16:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Puigcerdá</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">05:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">05:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">16:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">17:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">06:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">06:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">17:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Puigcerdá</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">18:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">07:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">07:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">18:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">19:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Puigcerdá</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">19:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">20:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">20:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">21:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">21:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr class="bg-rose-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">22:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">22:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">00:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <!-- Tabla para Festivos-Ida -->
-                    <div id="section1-Festivos-Ida" class="schedule-table hidden">
-                        <table class="w-full border-collapse border border-gray-300">
+                    <!-- Tabla para Festius-Anada -->
+                    <div id="section1-Festius-Anada" class="schedule-table hidden">
+                        <table class="w-full border-collapse bg-white rounded-xl shadow-sm">
                             <thead>
-                                <tr class="bg-gray-200">
-                                    <th class="border border-gray-300 p-2">Salida</th>
-                                    <th class="border border-gray-300 p-2">Llegada</th>
-                                    <th class="border border-gray-300 p-2">Duración</th>
+                                <tr class="sticky top-0 bg-gray-100">
+                                    <th colspan="2" class="p-2 text-center bg-slate-300">
+                                        <svg class="size-6 mx-auto">
+                                            <use xlink:href="#rodalies"></use>
+                                        </svg>
+                                    </th>
+                                    <th colspan="2" class="p-2 text-center bg-gray-200">
+                                        <svg class="size-6 mx-auto">
+                                            <use xlink:href="#bus-red"></use>
+                                        </svg>
+                                    </th>
+                                </tr>
+                                <tr class="sticky top-[40px] bg-white text-xs font-medium">
+                                    <th class="p-1 text-left text-gray-700">Origen</th>
+                                    <th class="p-1 text-center text-gray-700">Arribada<br>Centelles</th>
+                                    <th class="p-1 text-center text-gray-700">Sortida<br>Centelles</th>
+                                    <th class="p-1 text-center text-gray-700">Arribada<br>Fabra i Puig</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="text-[0.85rem]">
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">10:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">10:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">06:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">06:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">11:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">11:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">06:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">06:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">07:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">12:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">12:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">07:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">08:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">13:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">13:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Puigcerdá</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">08:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">09:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">14:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">14:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">09:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">10:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">15:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">15:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Puigcerdá</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">10:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">11:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">12:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">16:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">16:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ribes de Freser</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">11:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">12:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">12:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">17:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">17:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q.</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">12:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">12:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">13:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">18:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">18:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">13:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">14:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">19:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">19:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">14:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">15:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">20:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">20:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q.</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">15:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">16:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">21:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">21:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ribes de Freser</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">16:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">17:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">22:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">22:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">17:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">18:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">23:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">23:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q.</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">18:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">19:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:16</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">00:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">00:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Molina</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">19:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">20:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:16</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">20:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Tor de Q.</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">21:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:16</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">21:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:46</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:11</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">22:20</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:16</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:41</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">22:50</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:46</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <!-- Tabla para Festivos-Vuelta -->
-                    <div id="section1-Festivos-Vuelta" class="schedule-table hidden">
-                        <table class="w-full border-collapse border border-gray-300">
+                    <!-- Tabla para Festius-Tornada -->
+                    <div id="section1-Festius-Tornada" class="schedule-table hidden">
+                        <table class="w-full border-collapse bg-white rounded-xl shadow-sm">
                             <thead>
-                                <tr class="bg-gray-200">
-                                    <th class="border border-gray-300 p-2">Salida</th>
-                                    <th class="border border-gray-300 p-2">Llegada</th>
-                                    <th class="border border-gray-300 p-2">Duración</th>
+                                <tr class="sticky top-0 bg-gray-100">
+                                    <th colspan="2" class="p-2 text-center bg-gray-200">
+                                        <svg class="size-6 mx-auto">
+                                            <use xlink:href="#bus-red"></use>
+                                        </svg>
+                                    </th>
+                                    <th colspan="2" class="p-2 text-center bg-slate-300">
+                                        <svg class="size-6 mx-auto">
+                                            <use xlink:href="#rodalies"></use>
+                                        </svg>
+                                    </th>
+                                </tr>
+                                <tr class="sticky top-[40px] bg-white text-xs font-medium">
+                                    <th class="p-1 text-center text-gray-700">Sortida<br>Fabra i Puig</th>
+                                    <th class="p-1 text-center text-gray-700">Arribada<br>Centelles</th>
+                                    <th class="p-1 text-center text-gray-700">Sortida<br>Centelles</th>
+                                    <th class="p-1 text-left text-gray-700">Destí<br></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="border border-gray-300 p-2 text-center">16:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">16:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                            <tbody class="text-[0.85rem]">
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">04:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">05:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">--</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">17:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">17:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">05:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">06:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1"></td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">05:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">06:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">LaTordeQ.</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">18:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">18:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">06:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1"></td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">06:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">07:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ribes de Freser</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">19:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">19:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">07:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">07:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">08:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1"></td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">20:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">20:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">08:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">LaTordeQ.</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">08:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">09:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">21:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">21:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">09:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">09:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">10:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1"></td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">22:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">22:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">10:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">10:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">11:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1"></td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">23:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">23:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">11:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">12:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">12:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">LaTordeQ.</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">11:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">12:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1"></td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">00:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">00:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">12:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ribes de Freser</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">12:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">13:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">01:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">01:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">13:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">La Molina</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">13:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">14:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">02:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">02:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">14:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">LaTordeQ.</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">14:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">15:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">03:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">03:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">15:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">15:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">16:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1"></td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">04:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">04:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">16:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Pulgcerdá</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">16:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">17:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">05:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">05:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">17:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">17:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">18:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 p-2 text-center">06:00</td>
-                                    <td class="border border-gray-300 p-2 text-center">06:30</td>
-                                    <td class="border border-gray-300 p-2 text-center">30 min</td>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">18:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">---</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1"></td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">18:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">19:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Pulgcerdá</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">19:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">19:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">20:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">20:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">20:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">21:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">21:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">21:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">22:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Ripoll</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">22:20</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:16</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:42</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
+                                </tr>
+                                <tr class="bg-blue-100">
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 font-semibold text-blue-600 text-center">22:50</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">23:46</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-center">00:12</td> 
+                                    <td class="border-b border-gray-200 border-l-0 border-r-0 text-left pl-1">Vic</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -702,73 +1177,6 @@
 
 
 
-<!--
-<div id="section2-Laborables-Ida-Garriga" class="schedule-table hidden">
-    <div class="rounded-lg shadow-sm overflow-hidden">
-        <table class="w-full border-collapse bg-white">
-            <thead class="bg-gray-100">
-                <tr class="sticky top-0 bg-gray-100">
-                    <th class="p-3 text-left text-gray-700 font-semibold border-b border-gray-200">Salida</th>
-                    <th class="p-3 text-left text-gray-700 font-semibold border-b border-gray-200">Llegada</th>
-                    <th class="p-3 text-left text-gray-700 font-semibold border-b border-gray-200">Duración</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">07:00</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">07:45</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">45 min</td>
-                </tr>
-                <tr class="bg-blue-100 font-bold hover:bg-blue-50">
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">08:00</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">08:45</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">45 min</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">09:00</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">09:45</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">45 min</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">10:00</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">10:45</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">45 min</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">11:00</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">11:45</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">45 min</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">12:00</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">12:45</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">45 min</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">13:00</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">13:45</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">45 min</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">14:00</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">14:45</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">45 min</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">15:00</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">15:45</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">45 min</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">16:00</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">16:45</td>
-                    <td class="p-3 border-b border-gray-200 border-l-0 border-r-0 text-center">45 min</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
--->
 
 
 
@@ -1080,4 +1488,3 @@ document.addEventListener('DOMContentLoaded', () => {
     </script>
 </body>
 </html>
-

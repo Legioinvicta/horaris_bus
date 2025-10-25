@@ -1,0 +1,1890 @@
+*<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acordeón Interactivo (Refactorizado)</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <!-- Sprites ICONES -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+        <symbol id="rodalies" viewBox="0 0 46.988 46.988">
+            <defs>
+                <clipPath id="a" clipPathUnits="userSpaceOnUse">
+                    <path d="M0 841.89h595.276V0H0Z"/>
+                </clipPath>
+            </defs>
+            <g clip-path="url(#a)" transform="matrix(.35278 0 0 -.35278 -69.474 253.745)">
+                <path d="M286.332 620.787h133.195V487.592H286.332Z" style="fill:#f47216;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="translate(-89.399 98.49)"/>
+                <path d="M0 0h23.918v27.072H36.64c9.461 0 10.113-7.719 10.765-15.112.326-4.023.761-8.047 1.957-11.96h23.921C71.108 3.588 71 12.829 70.673 16.635c-.87 9.678-4.893 16.853-11.416 19.353 7.937 2.937 11.633 11.418 11.633 19.463 0 14.679-11.743 22.182-25.334 22.182H0Zm24.463 59.148h11.201c9.133 0 11.85-2.826 11.85-7.719 0-6.96-6.088-7.721-10.546-7.721H24.463Z" style="fill:#fff;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="translate(252.692 618.556)"/>
+            </g>
+        </symbol>
+        <symbol id="bus-red" viewBox="0 0 118.533 135.467">
+            <path d="M71.173 80.698c-14.023 0-25.4 11.377-25.4 25.4v76.2c0 7.885 5.397 14.526 12.7 16.404v8.996a8.46 8.46 0 0 0 8.467 8.467h4.233a8.46 8.46 0 0 0 8.467-8.467v-8.467h50.8v8.467a8.46 8.46 0 0 0 8.466 8.467h4.234a8.46 8.46 0 0 0 8.466-8.467v-8.996c7.303-1.878 12.7-8.52 12.7-16.404v-76.2c0-14.023-11.377-25.4-25.4-25.4zm-8.467 46.567a8.46 8.46 0 0 1 8.467-8.467H98.69v29.633H71.173a8.46 8.46 0 0 1-8.467-8.466zm48.684 21.166v-29.633h27.516a8.46 8.46 0 0 1 8.467 8.467v12.7a8.46 8.46 0 0 1-8.467 8.466zm-40.217 16.934a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.467-8.467 8.46 8.46 0 0 1 8.467-8.466m67.733 0a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.466-8.467 8.46 8.46 0 0 1 8.466-8.466M85.99 99.748a6.335 6.335 0 0 1 6.35-6.35h25.4a6.335 6.335 0 0 1 6.35 6.35 6.335 6.335 0 0 1-6.35 6.35h-25.4a6.335 6.335 0 0 1-6.35-6.35" style="fill:#c5312c;fill-opacity:1;stroke-width:.264583" transform="translate(-45.773 -80.698)"/>
+        </symbol>
+        <symbol id="bus-blue" viewBox="0 0 118.533 135.467">
+            <path d="M71.173 80.698c-14.023 0-25.4 11.377-25.4 25.4v76.2c0 7.885 5.397 14.526 12.7 16.404v8.996a8.46 8.46 0 0 0 8.467 8.467h4.233a8.46 8.46 0 0 0 8.467-8.467v-8.467h50.8v8.467a8.46 8.46 0 0 0 8.466 8.467h4.234a8.46 8.46 0 0 0 8.466-8.467v-8.996c7.303-1.878 12.7-8.52 12.7-16.404v-76.2c0-14.023-11.377-25.4-25.4-25.4zm-8.467 46.567a8.46 8.46 0 0 1 8.467-8.467H98.69v29.633H71.173a8.46 8.46 0 0 1-8.467-8.466zm48.684 21.166v-29.633h27.516a8.46 8.46 0 0 1 8.467 8.467v12.7a8.46 8.46 0 0 1-8.467 8.466zm-40.217 16.934a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.467-8.467 8.46 8.46 0 0 1 8.467-8.466m67.733 0a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.466-8.467 8.46 8.46 0 0 1 8.466-8.466M85.99 99.748a6.335 6.335 0 0 1 6.35-6.35h25.4a6.335 6.335 0 0 1 6.35 6.35 6.335 6.335 0 0 1-6.35 6.35h-25.4a6.335 6.335 0 0 1-6.35-6.35" style="fill:#2a64ad;fill-opacity:1;stroke-width:.264583" transform="translate(-45.773 -80.698)"/>
+        </symbol>
+        <symbol id="bus-sky" viewBox="0 0 118.533 135.467">
+            <path d="M71.173 80.698c-14.023 0-25.4 11.377-25.4 25.4v76.2c0 7.885 5.397 14.526 12.7 16.404v8.996a8.46 8.46 0 0 0 8.467 8.467h4.233a8.46 8.46 0 0 0 8.467-8.467v-8.467h50.8v8.467a8.46 8.46 0 0 0 8.466 8.467h4.234a8.46 8.46 0 0 0 8.466-8.467v-8.996c7.303-1.878 12.7-8.52 12.7-16.404v-76.2c0-14.023-11.377-25.4-25.4-25.4zm-8.467 46.567a8.46 8.46 0 0 1 8.467-8.467H98.69v29.633H71.173a8.46 8.46 0 0 1-8.467-8.466zm48.684 21.166v-29.633h27.516a8.46 8.46 0 0 1 8.467 8.467v12.7a8.46 8.46 0 0 1-8.467 8.466zm-40.217 16.934a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.467-8.467 8.46 8.46 0 0 1 8.467-8.466m67.733 0a8.46 8.46 0 0 1 8.467 8.466 8.46 8.46 0 0 1-8.467 8.467 8.46 8.46 0 0 1-8.466-8.467 8.46 8.46 0 0 1 8.466-8.466M85.99 99.748a6.335 6.335 0 0 1 6.35-6.35h25.4a6.335 6.335 0 0 1 6.35 6.35 6.335 6.335 0 0 1-6.35 6.35h-25.4a6.335 6.335 0 0 1-6.35-6.35" style="fill:#5eaadd;fill-opacity:1;stroke-width:.264583" transform="translate(-45.773 -80.698)"/>
+        </symbol>
+    </svg>
+
+    <div class="w-full max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6">
+        <h1 class="text-2xl font-bold text-center mb-6">Acordeón con Componentes</h1>
+        <div class="space-y-4" id="accordion-container">
+
+            <!-- =================================================================== -->
+            <!-- SECCIÓN 1: HTML COMPLETO Y DEFINIDO                                 -->
+            <!-- =================================================================== -->
+            <div>
+                <h2>
+                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200" data-accordion-target="#accordion-body-1" aria-expanded="false" aria-controls="accordion-body-1">
+                        <span>Sección 1: Consulta de Horarios</span>
+                        <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </h2>
+                <div id="accordion-body-1" class="hidden p-5 border border-t-0 border-gray-200 rounded-b-lg">
+                    <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 mb-6">
+                        <div id="dropdown-dia" class="relative w-full sm:w-1/2" data-dropdown>
+                            <button type="button" class="dropdown-button flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md" aria-haspopup="true" aria-expanded="false"><span class="dropdown-label">Laborables</span><svg class="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></button>
+                            <div class="dropdown-menu hidden absolute w-full mt-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-20"><div class="py-1"><a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Laborables</a><a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Festivos</a></div></div>
+                        </div>
+                        <div id="dropdown-viaje" class="relative w-full sm:w-1/2" data-dropdown>
+                             <button type="button" class="dropdown-button flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md" aria-haspopup="true" aria-expanded="false"><span class="dropdown-label">Ida</span><svg class="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></button>
+                            <div class="dropdown-menu hidden absolute w-full mt-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-20"><div class="py-1"><a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ida</a><a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Vuelta</a></div></div>
+                        </div>
+                    </div>
+                    <div id="tablas-container">
+                        <div id="tabla-laborables-ida" class="table-container">
+                            <h3 class="font-semibold text-lg ">Horari: Feiners - Anada</h3>
+
+<!-- Contenedor con Scroll -->
+<div class="relative max-h-72 overflow-y-auto rounded-lg">
+    
+    <!-- Lista de tarjetas, separadas por un espacio vertical -->
+    <div class="space-y-2">
+
+        <!-- TARJETA 1 (Equivale a una fila <tr>) -->
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">05:22</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">05:30</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">06:26</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">05:47</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">06:05</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">07:01</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Ripoll</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">06:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">06:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">07:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">06:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">06:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">07:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Ripoll</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">07:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">07:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">08:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Puigcerdá</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">07:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">07:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">08:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Ripoll</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">08:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">08:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">09:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">08:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">08:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">09:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Puigcerdá</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">09:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">09:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">10:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">09:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">09:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">10:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">---</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">---  </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">10:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">11:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Puigcerdá</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">10:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">10:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">11:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">---</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">---  </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">11:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">12:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Ribes de Freser</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">11:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">11:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">12:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">---            </span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">---  </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">12:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">13:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">La Tor de Q.</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">12:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">12:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">13:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">13:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">13:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">14:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Ripoll</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">13:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">13:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">14:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">14:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">14:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">15:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Ripoll</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">14:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">14:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">15:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">15:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">15:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">16:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">La Tor de Q.</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">15:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">15:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">16:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">---</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">---  </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">16:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">17:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Ripoll</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">16:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">16:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">17:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">17:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">17:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">18:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Ripoll</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">17:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">17:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">18:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">18:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">18:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">19:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">La Tor de Q.</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">18:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">18:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">19:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">19:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">19:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">20:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Ripoll</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">19:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">19:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">20:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">20:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">20:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">21:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">20:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">20:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">21:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">La Tor de Q.</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">21:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">21:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">22:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">21:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">21:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">22:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Ripoll</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">22:11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">22:20</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">23:16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-b-gray-200 p-1">
+            <div class="space-y-0">
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#rodalies"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-yellow-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Origen</span>
+                            <span class="text-gray-900">Vic</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Centelles</span>
+                            <span class="text-gray-900">22:41</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex items-center p-2">
+                        <svg class="size-4 mx-auto">
+                          <use xlink:href="#bus-red"></use>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col w-full bg-rose-50">
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Sortida Centelles</span>
+                            <span class="font-medium text-rose-600">22:50</span>
+                        </div>
+                        <div class="flex justify-between items-center text-[0.8rem]">
+                            <span class="text-gray-500">Arribada Fabra i Puig</span>
+                            <span class="text-gray-900">23:46</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <!-- TARJETA 1 (Equivale a una fila <tr>) -->
+       <!--
+        <div class="bg-white border border-gray-200 rounded-lg p-3">
+            <div class="space-y-2">
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-gray-500">Origen</span>
+                    <span class="font-medium text-gray-900">Estación Destino</span>
+                </div>
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-gray-500">Hora Salida</span>
+                    <span class="font-medium text-gray-900">19:00</span>
+                </div>
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-gray-500">Hora Llegada</span>
+                    <span class="font-medium text-gray-900">19:35</span>
+                </div>
+            </div>
+        </div>
+        -->
+        <!-- TARJETA 2 -->
+        <!--
+        <div class="bg-white border border-gray-200 rounded-lg p-3">
+            <div class="space-y-2">
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-gray-500">Origen</span>
+                    <span class="font-medium text-gray-900">Estación Destino</span>
+                </div>
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-gray-500">Hora Salida</span>
+                    <span class="font-medium text-gray-900">20:00</span>
+                </div>
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-gray-500">Hora Llegada</span>
+                    <span class="font-medium text-gray-900">20:35</span>
+                </div>
+            </div>
+        </div>
+        -->
+        <!-- ... etc. ... -->
+
+    </div>
+</div>
+
+
+
+                        </div>
+                        <div id="tabla-laborables-vuelta" class="table-container hidden"><h3 class="font-semibold text-lg mb-2">Horario: Laborables - Vuelta</h3><p class="text-gray-600">Aquí irían los datos de la tabla...</p></div>
+                        <div id="tabla-festivos-ida" class="table-container hidden"><h3 class="font-semibold text-lg mb-2">Horario: Festivos - Ida</h3><p class="text-gray-600">Aquí irían los datos de la tabla...</p></div>
+                        <div id="tabla-festivos-vuelta" class="table-container hidden"><h3 class="font-semibold text-lg mb-2">Horario: Festivos - Vuelta</h3><p class="text-gray-600">Aquí irían los datos de la tabla...</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =================================================================== -->
+            <!-- SECCIÓN 2: HTML COMPLETO Y DEFINIDO                                 -->
+            <!-- =================================================================== -->
+            <div>
+                 <h2>
+                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200" data-accordion-target="#accordion-body-2" aria-expanded="false" aria-controls="accordion-body-2">
+                        <span>Sección 2: Horarios por Población</span>
+                        <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </h2>
+                <div id="accordion-body-2" class="hidden p-5 border border-t-0 border-gray-200 rounded-b-lg">
+                    <div class="flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 mb-6">
+                        <div id="s2-dropdown-dia" class="relative w-full lg:w-1/3" data-dropdown>
+                            <button type="button" class="dropdown-button flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md" aria-haspopup="true" aria-expanded="false">
+                                <span class="dropdown-label">Laborables</span>
+                                <svg class="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu hidden absolute w-full mt-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-10">
+                                <div class="py-1">
+                                    <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Laborables</a>
+                                    <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Festivos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="s2-dropdown-viaje" class="relative w-full lg:w-1/3" data-dropdown>
+                            <button type="button" class="dropdown-button flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md" aria-haspopup="true" aria-expanded="false">
+                                <span class="dropdown-label">Ida</span>
+                                <svg class="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button><div class="dropdown-menu hidden absolute w-full mt-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-10">
+                            <div class="py-1">
+                                <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ida</a>
+                                <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Vuelta</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="s2-dropdown-poblacion" class="relative w-full lg:w-1/3" data-dropdown data-selected-value="lagarriga">
+                        <button type="button" class="dropdown-button flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md" aria-haspopup="true" aria-expanded="false">
+                            <span class="dropdown-label">La Garriga</span>
+                            <svg class="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg></button><div class="dropdown-menu hidden absolute w-full mt-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-10">
+                            <div class="py-1">
+                                <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-value="lagarriga">La Garriga</a>
+                                <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-value="mollet">Mollet-Santa Rosa</a>
+                                <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-value="montcada">Montcada-Ripollet</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div id="s2-tablas-container">
+                        <div id="tabla-s2-laborables-ida-lagarriga" class="s2-table-container">
+<div class="relative max-h-64 overflow-y-auto border border-gray-200 rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500">
+        
+        <!-- Encabezado Fijo (Sticky) -->
+        <thead class="text-xs text-gray-700 uppercase bg-gray-100 sticky top-0">
+            <tr>
+                <th scope="col" colspan="3" class="p-0">
+                    <img src="https://via.placeholder.com/800x120.png?text=Horarios+La+Garriga" 
+                         alt="Banner de horarios para La Garriga" 
+                         class="w-full h-auto object-cover">
+                </th>
+            </tr>
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Origen
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Hora Salida
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Hora Llegada
+                </th>
+            </tr>
+        </thead>
+        
+        <!-- Cuerpo de la Tabla (Contenido Desplazable) -->
+        <tbody>
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    La Garriga
+                </td>
+                <td class="px-6 py-4">
+                    08:00
+                </td>
+                <td class="px-6 py-4">
+                    08:45
+                </td>
+            </tr>
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    La Garriga
+                </td>
+                <td class="px-6 py-4">
+                    08:30
+                </td>
+                <td class="px-6 py-4">
+                    09:15
+                </td>
+            </tr>
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    La Garriga
+                </td>
+                <td class="px-6 py-4">
+                    09:00
+                </td>
+                <td class="px-6 py-4">
+                    09:45
+                </td>
+            </tr>
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    La Garriga
+                </td>
+                <td class="px-6 py-4">
+                    09:30
+                </td>
+                <td class="px-6 py-4">
+                    10:15
+                </td>
+            </tr>
+             <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    La Garriga
+                </td>
+                <td class="px-6 py-4">
+                    10:00
+                </td>
+                <td class="px-6 py-4">
+                    10:45
+                </td>
+            </tr>
+             <tr class="bg-white hover:bg-gray-50">
+                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    La Garriga
+                </td>
+                <td class="px-6 py-4">
+                    10:30
+                </td>
+                <td class="px-6 py-4">
+                    11:15
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+                        </div>
+                        <div id="tabla-s2-laborables-ida-mollet" class="s2-table-container hidden"><h3 class="font-semibold text-lg mb-2">Horario: Laborables - Ida (Mollet)</h3><p class="text-gray-600">Datos de la tabla...</p></div>
+                        <!-- ... Y así sucesivamente para las 10 combinaciones restantes -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 3 del Acordeón -->
+            <div><!-- ... --></div>
+
+        </div>
+    </div>
+
+
+<!-- ======================================================= -->
+<!-- BLOQUE 1: LÓGICA DEL ACORDEÓN (CONFIGURABLE)            -->
+<!-- ======================================================= -->
+<script id="logic-accordion">
+document.addEventListener('DOMContentLoaded', () => {
+
+    // -----------------------------------------------------------------
+    //  VARIABLES DE CONFIGURACIÓN: ¡MODIFICA ESTO!
+    // -----------------------------------------------------------------
+
+    /** 
+     * Define qué sección se abre al cargar la página.
+     * - Usa 0 para la primera sección, 1 para la segunda, 2 para la tercera, etc.
+     * - Usa null si quieres que TODAS las secciones estén cerradas al inicio.
+     */
+    const initialOpenSectionIndex = null; // Ejemplo: abrir la primera sección por defecto.
+
+    /**
+     * Define el comportamiento al abrir una sección.
+     * - true:  Al abrir una sección, cualquier otra que esté abierta se cerrará. (Comportamiento clásico)
+     * - false: Permite que varias secciones estén abiertas al mismo tiempo.
+     */
+    const closeOthersOnOpen = true; // Ejemplo: solo una sección puede estar abierta a la vez.
+
+    // -----------------------------------------------------------------
+    //  LÓGICA DEL COMPONENTE (No es necesario tocar más abajo)
+    // -----------------------------------------------------------------
+
+    const accordionContainer = document.getElementById('accordion-container');
+    if (!accordionContainer) return;
+
+    const allButtons = accordionContainer.querySelectorAll('[data-accordion-target]');
+
+    // --- LÓGICA DE INICIALIZACIÓN: Abrir la sección por defecto ---
+    if (initialOpenSectionIndex !== null && initialOpenSectionIndex >= 0 && initialOpenSectionIndex < allButtons.length) {
+        const initialButton = allButtons[initialOpenSectionIndex];
+        const initialBody = document.querySelector(initialButton.getAttribute('data-accordion-target'));
+
+        initialButton.setAttribute('aria-expanded', 'true');
+        initialBody.classList.remove('hidden');
+        initialButton.querySelector('svg')?.classList.add('rotate-180');
+    }
+
+    // --- LÓGICA DE EVENTOS: Manejar los clics del usuario ---
+    accordionContainer.addEventListener('click', (event) => {
+        const clickedButton = event.target.closest('[data-accordion-target]');
+        if (!clickedButton) return;
+
+        const targetBody = document.querySelector(clickedButton.getAttribute('data-accordion-target'));
+        const isCurrentlyExpanded = clickedButton.getAttribute('aria-expanded') === 'true';
+
+        // Si la configuración lo indica, cierra las otras secciones
+        if (closeOthersOnOpen) {
+            allButtons.forEach(btn => {
+                if (btn !== clickedButton) {
+                    document.querySelector(btn.getAttribute('data-accordion-target')).classList.add('hidden');
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.querySelector('svg')?.classList.remove('rotate-180');
+                }
+            });
+        }
+
+        // Abre o cierra la sección que fue clicada
+        clickedButton.setAttribute('aria-expanded', !isCurrentlyExpanded);
+        targetBody.classList.toggle('hidden');
+        clickedButton.querySelector('svg')?.classList.toggle('rotate-180');
+    });
+});
+</script>
+
+<!-- ======================================================= -->
+<!-- BLOQUE 2: LÓGICA DE DROPDOWNS (REUTILIZABLE Y MEJORADA) -->
+<!-- ======================================================= -->
+<script id="logic-dropdowns">
+document.addEventListener('DOMContentLoaded', () => {
+    const allDropdowns = document.querySelectorAll('[data-dropdown]');
+
+    function closeAllDropdowns(exceptThisOne = null) {
+        allDropdowns.forEach(dropdown => {
+            if (dropdown !== exceptThisOne) {
+                dropdown.querySelector('.dropdown-menu').classList.add('hidden');
+                dropdown.querySelector('.dropdown-button').setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+    allDropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector('.dropdown-button');
+        const menu = dropdown.querySelector('.dropdown-menu');
+
+        button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            closeAllDropdowns(dropdown);
+            menu.classList.toggle('hidden');
+            button.setAttribute('aria-expanded', !menu.classList.contains('hidden'));
+        });
+
+        dropdown.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', (event) => {
+                event.preventDefault();
+                
+                // 1. Actualiza el texto visible (lo que ve el usuario)
+                dropdown.querySelector('.dropdown-label').textContent = item.textContent;
+
+                // 2. NUEVO: Actualiza el valor lógico en el contenedor principal
+                if (item.hasAttribute('data-value')) {
+                    const logicalValue = item.getAttribute('data-value');
+                    dropdown.setAttribute('data-selected-value', logicalValue);
+                }
+
+                closeAllDropdowns();
+            });
+        });
+    });
+
+    window.addEventListener('click', () => closeAllDropdowns());
+});
+</script>
+
+    
+    <!-- ======================================================= -->
+    <!-- BLOQUE 3: LÓGICA DE TABLAS - SECCIÓN 1                  -->
+    <!-- ======================================================= -->
+    <script id="logic-tables-s1">
+        document.addEventListener('DOMContentLoaded', () => {
+            const section1 = document.querySelector('#accordion-body-1');
+            if (!section1) return;
+
+            const dropdownDia = section1.querySelector('#dropdown-dia');
+            const dropdownViaje = section1.querySelector('#dropdown-viaje');
+            const allTables = section1.querySelectorAll('.table-container');
+
+            function updateS1TableVisibility() {
+                const dia = dropdownDia.querySelector('.dropdown-label').textContent.trim().toLowerCase();
+                const viaje = dropdownViaje.querySelector('.dropdown-label').textContent.trim().toLowerCase();
+                const visibleTableId = `tabla-${dia}-${viaje}`;
+
+                allTables.forEach(container => {
+                    container.classList.toggle('hidden', container.id !== visibleTableId);
+                });
+            }
+
+            section1.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', () => setTimeout(updateS1TableVisibility, 0));
+            });
+
+            updateS1TableVisibility();
+        });
+    </script>
+
+    <!-- ======================================================= -->
+    <!-- BLOQUE 4: LÓGICA DE TABLAS - SECCIÓN 2                  -->
+    <!-- ======================================================= -->
+    <script id="logic-tables-s2">
+        document.addEventListener('DOMContentLoaded', () => {
+            const section2 = document.querySelector('#accordion-body-2');
+            if (!section2) return;
+
+            const dropdownDia = section2.querySelector('#s2-dropdown-dia');
+            const dropdownViaje = section2.querySelector('#s2-dropdown-viaje');
+            const dropdownPoblacion = section2.querySelector('#s2-dropdown-poblacion');
+            const allTables = section2.querySelectorAll('.s2-table-container');
+
+            function updateS2TableVisibility() {
+                const dia = dropdownDia.querySelector('.dropdown-label').textContent.trim().toLowerCase();
+                const viaje = dropdownViaje.querySelector('.dropdown-label').textContent.trim().toLowerCase();
+                const poblacion = dropdownPoblacion.querySelector('.dropdown-label').textContent.trim().toLowerCase().replace(/\s+/g, '');
+                const visibleTableId = `tabla-s2-${dia}-${viaje}-${poblacion}`;
+
+                allTables.forEach(container => {
+                    container.classList.toggle('hidden', container.id !== visibleTableId);
+                });
+            }
+
+            section2.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', () => setTimeout(updateS2TableVisibility, 0));
+            });
+            
+            updateS2TableVisibility();
+        });
+    </script>
+
+</body>
+</html>

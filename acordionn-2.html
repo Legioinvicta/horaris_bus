@@ -1,4 +1,4 @@
-*<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -40,1502 +40,1027 @@
             <!-- =================================================================== -->
             <div>
                 <h2>
-                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200" data-accordion-target="#accordion-body-1" aria-expanded="false" aria-controls="accordion-body-1">
+                    <button type="button" class="flex items-center justify-between w-full p-3 font-medium text-left text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200" data-accordion-target="#accordion-body-1" aria-expanded="false" aria-controls="accordion-body-1">
                         <span>Sección 1: Consulta de Horarios</span>
-                        <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
                     </button>
                 </h2>
-                <div id="accordion-body-1" class="hidden p-5 border border-t-0 border-gray-200 rounded-b-lg">
-                    <div class="flex flex-row sm:space-x-2 space-y-2 mb-3">
-                        <div id="dropdown-dia" class="relative w-full sm:w-1/2" data-dropdown>
-                            <button type="button" class="dropdown-button flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md" aria-haspopup="true" aria-expanded="false"><span class="dropdown-label">Laborables</span><svg class="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></button>
-                            <div class="dropdown-menu hidden absolute w-full mt-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-20"><div class="py-1"><a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Laborables</a><a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Festivos</a></div></div>
+                <div id="accordion-body-1" class="hidden p-3 border border-t-0 border-gray-200 rounded-b-lg">
+                    <div class="flex flex-row gap-x-5 flex-wrap sm:space-x-2 space-y-2 mb-2">
+                        <div id="dropdown-dia" class="relative" data-dropdown>
+                            <button type="button" class="dropdown-button flex items-center justify-between w-32 px-2 py-1 text-sm font-medium text-gray-700 bg-white border-b border-gray-300" aria-haspopup="true" aria-expanded="false">
+                                <span class="dropdown-label">Laborables</span>
+                                <svg class="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu hidden absolute w-32 mt-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-20">
+                                <div class="py-1">
+                                    <a href="#" class="dropdown-item block px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Laborables</a>
+                                    <a href="#" class="dropdown-item block px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Festivos</a>
+                                </div>
+                            </div>
                         </div>
-                        <div id="dropdown-viaje" class="relative w-full sm:w-1/2" data-dropdown>
-                             <button type="button" class="dropdown-button flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md" aria-haspopup="true" aria-expanded="false"><span class="dropdown-label">Ida</span><svg class="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></button>
-                            <div class="dropdown-menu hidden absolute w-full mt-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-20"><div class="py-1"><a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ida</a><a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Vuelta</a></div></div>
+                        <div id="dropdown-viaje" class="relative" data-dropdown>
+                            <button type="button" class="dropdown-button flex items-center justify-between w-32 px-2 py-1 text-sm font-medium text-gray-700 bg-white border-b border-gray-300" aria-haspopup="true" aria-expanded="false">
+                                <span class="dropdown-label">Ida</span>
+                                <svg class="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu hidden absolute w-32 mt-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-20">
+                                <div class="py-1">
+                                    <a href="#" class="dropdown-item block px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Ida</a>
+                                    <a href="#" class="dropdown-item block px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Vuelta</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <div id="tablas-container">
                         <div id="tabla-laborables-ida" class="table-container">
-                            <h3 class="font-semibold text-lg ">Horari: Feiners - Anada</h3>
+                            <div class="relative max-h-72 overflow-y-auto border border-gray-200 rounded-lg">
+                               <table class="border-collapse w-full text-sm text-left text-gray-500">
+                                   <thead class="text-xs text-gray-900 uppercase bg-gray-100 sticky top-0">
+                                       <tr>
+                                           <th scope="col" colspan="2" class="border border-gray-300 p-3 bg-slate-200">
+                                               <svg class="size-6 mx-auto">
+                                                   <use xlink:href="#rodalies"></use>
+                                               </svg>
+                                           </th>
+                                           <th scope="col" colspan="2" class="border border-gray-300 p-3 bg-slate-200">
+                                               <svg class="size-6 mx-auto">
+                                                   <use xlink:href="#bus-red"></use>
+                                               </svg>
+                                           </th>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300 text-[0.7rem]">
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Origen</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Arribada<br>Centelles</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center text-rose-700">Sortida<br>Centelles</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Arribada<br>Fabra i Puig</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody class="text-[0.85rem]">
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">05:22</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">05:30</td>
+                                           <td class="border border-gray-300 px-2 text-center">06:26</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">05:47</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">06:05</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:01</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">06:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">06:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">06:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">06:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">07:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Puigcerdá</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">07:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">08:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">08:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Puigcerdá</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">09:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">09:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">----</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">10:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Puigcerdá</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">10:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">----</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">11:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ribes de Freser</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">11:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">----</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">12:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">12:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">13:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">13:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">14:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">14:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">15:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">15:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">----</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">16:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">16:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">17:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">17:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">18:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">18:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">19:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">19:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">20:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">20:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">21:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:16</td>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">21:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:46</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">22:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:16</td>
+                                       </tr>
+                                       <tr class="bg-white">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">22:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:46</td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                            </div>
+                        </div>
 
-<!-- Contenedor con Scroll -->
-<div class="relative max-h-72 overflow-y-auto rounded-lg">
-    
-    <!-- Lista de tarjetas, separadas por un espacio vertical -->
-    <div class="space-y-2">
+                        <div id="tabla-laborables-vuelta" class="table-container hidden">
+                            <div class="relative max-h-72 overflow-y-auto border border-gray-200 rounded-lg">
+                               <table class="border-collapse w-full text-sm text-left text-gray-500">
+                                   <thead class="text-xs text-gray-900 uppercase bg-gray-100 sticky top-0">
+                                       <tr>
+                                           <th scope="col" colspan="2" class="border border-gray-300 p-3 bg-slate-200">
+                                               <svg class="size-6 mx-auto">
+                                                   <use xlink:href="#bus-red"></use>
+                                               </svg>
+                                           </th>
+                                           <th scope="col" colspan="2" class="border border-gray-300 p-3 bg-slate-200">
+                                               <svg class="size-6 mx-auto">
+                                                   <use xlink:href="#rodalies"></use>
+                                               </svg>
+                                           </th>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300 text-[0.7rem]">
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center text-rose-700">Sortida<br>Fabra i Puig</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Arribada<br>Centelles</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Sortida<br>Centelles</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Destí</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody class="text-[0.85rem]">
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">04:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">05:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">05:59</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">05:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">06:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">06:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">05:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">06:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">06:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">06:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ribes de Freser</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">07:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">07:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">08:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">08:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">09:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">09:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">10:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">10:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">11:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">11:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">12:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">12:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">13:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">13:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">14:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">14:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">15:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">15:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">16:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Puigcerdá</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">16:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">17:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">17:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Puigcerdá</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">18:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">18:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">19:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Puigcerdá</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">19:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">20:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">20:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">21:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="bg-rose-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">21:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">22:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="bg-rose-50">
+                                           <td class="border border-gray-300 px-2 text-center text-rose-700 font-medium">22:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">00:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                            </div>
+                        </div>
 
-        <!-- TARJETA 1 (Equivale a una fila <tr>) -->
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
+                        <div id="tabla-festivos-ida" class="table-container hidden">
+                            <div class="relative max-h-72 overflow-y-auto border border-gray-200 rounded-lg">
+                               <table class="border-collapse w-full text-sm text-left text-gray-500">
+                                   <thead class="text-gray-900 uppercase bg-gray-100 sticky top-0">
+                                       <tr>
+                                           <th scope="col" colspan="2" class="border border-gray-300 p-3 bg-slate-200">
+                                               <svg class="size-6 mx-auto">
+                                                   <use xlink:href="#rodalies"></use>
+                                               </svg>
+                                           </th>
+                                           <th scope="col" colspan="2" class="border border-gray-300 p-3 bg-slate-200">
+                                               <svg class="size-6 mx-auto">
+                                                   <use xlink:href="#bus-red"></use>
+                                               </svg>
+                                           </th>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300 text-[0.7rem]">
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Origen</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Arribada<br>Centelles</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center text-blue-700">Sortida<br>Centelles</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Arribada<br>Fabra i Puig</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody class="text-[0.85rem]">
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">06:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">06:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">06:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">06:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">07:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:16</td>
+                                       </tr>
+                                       <tr class=" border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">07:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">08:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Puigcerdá</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">08:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">09:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">09:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">10:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Puigcerdá</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">10:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">11:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ribes de Freser</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">11:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">12:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">12:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">13:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">13:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">14:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">14:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">15:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">15:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">16:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ribes de Freser</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">16:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">17:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">17:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">18:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">18:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">19:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Molina</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">19:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">20:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">20:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">21:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">21:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:46</td>
+                                       </tr>
+                                       <tr class="bg-blue-50 border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:11</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">22:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:16</td>
+                                       </tr>
+                                       <tr class="border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:41</td>
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">22:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:46</td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                            </div>
                         </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">05:22</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">05:30</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">06:26</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
+                        <div id="tabla-festivos-vuelta" class="table-container hidden">
+                            <div class="relative max-h-72 overflow-y-auto border border-gray-200 rounded-lg">
+                               <table class="border-collapse w-full text-sm text-left text-gray-500">
+                                   <thead class="text-xs text-gray-900 uppercase bg-gray-100 sticky top-0">
+                                       <tr>
+                                           <th scope="col" colspan="2" class="border border-gray-300 p-3 bg-slate-200">
+                                               <svg class="size-6 mx-auto">
+                                                   <use xlink:href="#bus-red"></use>
+                                               </svg>
+                                           </th>
+                                           <th scope="col" colspan="2" class="border border-gray-300 p-3 bg-slate-200">
+                                               <svg class="size-6 mx-auto">
+                                                   <use xlink:href="#rodalies"></use>
+                                               </svg>
+                                           </th>
+                                       </tr>
+                                       <tr class="bg-white border-b border-b-gray-300 text-[0.7rem]">
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center text-blue-700">Sortida<br>Fabra i Puig</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Arribada<br>Centelles</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Sortida<br>Centelles</th>
+                                           <th scope="col" class="border border-gray-300 px-3 py-1 text-center">Destí</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody class="text-[0.85rem]">
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">04:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">05:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">05:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">06:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">05:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">06:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">06:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">06:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">07:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ribes de Freser</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">07:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">07:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">08:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">08:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">08:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">09:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">09:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">09:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">10:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">10:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">10:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">11:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">11:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">11:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">12:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">12:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ribes de Freser</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">12:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">13:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">13:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Molina</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">13:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">14:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">14:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">La Tor de Q.</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">14:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">15:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">15:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">15:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">16:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">16:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Puigcerdá</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">16:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">17:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">17:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">17:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">18:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">18:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">-----</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">-----</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">18:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">19:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Puigcerdá</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">19:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">19:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">20:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">20:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">20:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">21:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">21:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">21:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">22:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Ripoll</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">22:20</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:16</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:42</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                       <tr class="odd:bg-blue-50 even:bg-white border-b border-b-gray-300">
+                                           <td class="border border-gray-300 px-2 text-center text-blue-700 font-medium">22:50</td>
+                                           <td class="border border-gray-300 px-2 text-center">23:46</td>
+                                           <td class="border border-gray-300 px-2 text-center">00:12</td>
+                                           <td class="border border-gray-300 px-2 text-left whitespace-nowrap">Vic</td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                            </div>
                         </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">05:47</span>
-                        </div>
                     </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">06:05</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">07:01</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Ripoll</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">06:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">06:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">07:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">06:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">06:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">07:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Ripoll</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">07:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">07:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">08:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Puigcerdá</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">07:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">07:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">08:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Ripoll</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">08:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">08:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">09:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">08:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">08:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">09:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Puigcerdá</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">09:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">09:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">10:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">09:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">09:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">10:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">---</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">---  </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">10:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">11:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Puigcerdá</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">10:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">10:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">11:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">---</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">---  </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">11:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">12:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Ribes de Freser</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">11:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">11:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">12:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">---            </span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">---  </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">12:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">13:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">La Tor de Q.</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">12:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">12:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">13:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">13:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">13:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">14:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Ripoll</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">13:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">13:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">14:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">14:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">14:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">15:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Ripoll</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">14:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">14:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">15:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">15:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">15:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">16:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">La Tor de Q.</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">15:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">15:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">16:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">---</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">---  </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">16:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">17:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Ripoll</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">16:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">16:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">17:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">17:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">17:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">18:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Ripoll</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">17:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">17:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">18:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">18:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">18:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">19:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">La Tor de Q.</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">18:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">18:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">19:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">19:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">19:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">20:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Ripoll</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">19:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">19:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">20:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">20:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">20:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">21:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">20:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">20:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">21:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">La Tor de Q.</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">21:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">21:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">22:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">21:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">21:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">22:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Ripoll</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">22:11</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">22:20</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">23:16</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white border-b border-b-gray-200 p-1">
-            <div class="space-y-0">
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#rodalies"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-yellow-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Origen</span>
-                            <span class="text-gray-900">Vic</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Centelles</span>
-                            <span class="text-gray-900">22:41</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="flex items-center p-2">
-                        <svg class="size-4 mx-auto">
-                          <use xlink:href="#bus-red"></use>
-                        </svg>
-                    </div>
-                    <div class="flex flex-col w-full bg-rose-50">
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Sortida Centelles</span>
-                            <span class="font-medium text-rose-600">22:50</span>
-                        </div>
-                        <div class="flex justify-between items-center text-[0.8rem]">
-                            <span class="text-gray-500">Arribada Fabra i Puig</span>
-                            <span class="text-gray-900">23:46</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       <!-- TARJETA 1 (Equivale a una fila <tr>) -->
-       <!--
-        <div class="bg-white border border-gray-200 rounded-lg p-3">
-            <div class="space-y-2">
-                <div class="flex justify-between items-center text-sm">
-                    <span class="text-gray-500">Origen</span>
-                    <span class="font-medium text-gray-900">Estación Destino</span>
-                </div>
-                <div class="flex justify-between items-center text-sm">
-                    <span class="text-gray-500">Hora Salida</span>
-                    <span class="font-medium text-gray-900">19:00</span>
-                </div>
-                <div class="flex justify-between items-center text-sm">
-                    <span class="text-gray-500">Hora Llegada</span>
-                    <span class="font-medium text-gray-900">19:35</span>
-                </div>
-            </div>
-        </div>
-        -->
-        <!-- TARJETA 2 -->
-        <!--
-        <div class="bg-white border border-gray-200 rounded-lg p-3">
-            <div class="space-y-2">
-                <div class="flex justify-between items-center text-sm">
-                    <span class="text-gray-500">Origen</span>
-                    <span class="font-medium text-gray-900">Estación Destino</span>
-                </div>
-                <div class="flex justify-between items-center text-sm">
-                    <span class="text-gray-500">Hora Salida</span>
-                    <span class="font-medium text-gray-900">20:00</span>
-                </div>
-                <div class="flex justify-between items-center text-sm">
-                    <span class="text-gray-500">Hora Llegada</span>
-                    <span class="font-medium text-gray-900">20:35</span>
-                </div>
-            </div>
-        </div>
-        -->
-        <!-- ... etc. ... -->
-
-    </div>
-</div>
-
-
-
-                        </div>
-                        <div id="tabla-laborables-vuelta" class="table-container hidden"><h3 class="font-semibold text-lg mb-2">Horario: Laborables - Vuelta</h3><p class="text-gray-600">Aquí irían los datos de la tabla...</p></div>
-                        <div id="tabla-festivos-ida" class="table-container hidden"><h3 class="font-semibold text-lg mb-2">Horario: Festivos - Ida</h3><p class="text-gray-600">Aquí irían los datos de la tabla...</p></div>
-                        <div id="tabla-festivos-vuelta" class="table-container hidden"><h3 class="font-semibold text-lg mb-2">Horario: Festivos - Vuelta</h3><p class="text-gray-600">Aquí irían los datos de la tabla...</p></div>
-                    </div>
                 </div>
             </div>
 
@@ -1618,8 +1143,6 @@
                 </th>
             </tr>
         </thead>
-        
-        <!-- Cuerpo de la Tabla (Contenido Desplazable) -->
         <tbody>
             <tr class="bg-white border-b hover:bg-gray-50">
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
@@ -1692,8 +1215,9 @@
 </div>
                         </div>
                         <div id="tabla-s2-laborables-ida-mollet" class="s2-table-container hidden"><h3 class="font-semibold text-lg mb-2">Horario: Laborables - Ida (Mollet)</h3><p class="text-gray-600">Datos de la tabla...</p></div>
-                        <!-- ... Y así sucesivamente para las 10 combinaciones restantes -->
-                    </div>
+
+
+                       </div>
                 </div>
             </div>
 
@@ -1708,7 +1232,7 @@
 <!-- BLOQUE 1: LÓGICA DEL ACORDEÓN (CONFIGURABLE)            -->
 <!-- ======================================================= -->
 <script id="logic-accordion">
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
 
     // -----------------------------------------------------------------
     //  VARIABLES DE CONFIGURACIÓN: ¡MODIFICA ESTO!
@@ -1889,6 +1413,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 
 </html>
-
-
-

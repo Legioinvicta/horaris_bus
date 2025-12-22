@@ -1,0 +1,1240 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendari Festius</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/styles/index.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/index.js" defer></script>
+    <style>
+        .vanilla-calendar_multiple {
+            width: 850px!important;
+        }
+        .vanilla-calendar-week-number  {
+            background: rgb(212, 212, 212)!important;
+            color: rgb(23, 112, 96)!important;
+        }
+        .festius {
+            color:white!important;
+            background-color: oklch(63.7% 0.237 25.331)!important;
+            font-weight:bold!important;
+            /*border-radius: 100%!important;*/
+        }
+        .organic {
+            color:white!important;
+            background-color: oklch(47% 0.157 37.304)!important;
+            font-weight:bold!important;
+            /*border-radius: 100%!important;*/
+        }
+        .reciclable {
+            color:white!important;
+            background-color: oklch(48.8% 0.243 264.376)!important;
+            font-weight:bold!important;
+            /*border-radius: 100%!important;*/
+        }
+        .resta {
+            color:white!important;
+            background-color: oklch(70.7% 0.022 261.325)!important;
+            font-weight:bold!important;
+            /*border-radius: 100%!important;*/
+        }
+        .vanilla-calendar-day_holiday {
+            color: coral!important;
+            font-weight: bold!important;
+            background-color: aqua!important;
+        }
+        .vanilla-calendar-day__btn_holiday {
+            font-weight:bold!important;
+            border-radius: 100%!important;
+            background-color: rgb(8 145 178)!important;
+            color:white!important;
+        }
+        .vanilla-calendar-day__btn_selected {
+            font-weight:bold!important;
+            border-radius: 100%!important;
+            background-color: rgb(148 163 184)!important;
+            color:white!important;
+        }
+    </style>
+</head>
+<body class="font-[Lato]">
+    <div class="container mx-auto">
+        <div class="flex flex-col place-items-center">
+            <div class="flex flex-col place-items-center mt-3 mb-5">
+                <div class="text-2xl font-bold mb-3">RECOLLIDA SELECTIVA SEVA</div>
+                <div class="mt-2 text-xs text-white font-bold"><span class="bg-orange-800 rounded p-2">Orgànica</span> <span class="bg-blue-700 rounded p-2">Reciclables</span> <span class="bg-gray-400 rounded p-2">Resta</span> <span class="bg-red-500 rounded p-2">Festius</span></div>
+            </div>
+            <div id="calendar"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const { Calendar } = window.VanillaCalendarPro;
+            const calendar = new Calendar('#calendar', {
+                locale: 'ca',
+                type: 'multiple',
+                displayMonthsCount: 12,
+                disableDatesPast: true,
+                displayDatesOutside: false,
+                enableWeekNumbers: true,
+                selectedMonth: 0,
+                selectedYear: 2026,
+                popups: {
+                    '2026-01-01': {
+                        modifier: 'festius',
+                        html: `<div class="font-semibold text-center text-red-500">Festiu</div>`,
+                    },
+                    '2026-01-06': {
+                        modifier: 'festius',
+                        html: `<div class="font-semibold text-center text-red-500">Festiu</div>`,
+                    },
+                    '2026-06-24': {
+                        modifier: 'festius',
+                        html: `<div class="font-semibold text-center text-red-500">Festiu</div>`,
+                    },
+                    '2026-12-25': {
+                        modifier: 'festius',
+                        html: `<div class="font-semibold text-center text-red-500">Festiu</div>`,
+                    },
+                    '2026-01-02': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-03': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-01-05': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-07': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-08': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-01-09': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-10': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-01-12': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-13': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-01-14': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-16': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-17': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-01-19': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-20': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-01-21': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-22': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-01-23': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-24': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-01-26': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-27': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-01-28': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-30': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-01-31': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-02-02': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-03': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-02-04': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-05': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-02-06': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-07': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-02-09': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-10': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-02-11': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-13': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-14': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-02-16': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-17': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-02-18': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-19': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-02-20': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-21': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-02-23': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-24': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-02-25': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-27': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-02-28': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-03-02': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-03': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-03-04': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-05': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-03-06': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-07': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-03-09': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-10': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-03-11': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                   '2026-03-13': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-14': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-03-16': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-17': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-03-18': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-19': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-03-20': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-21': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-03-23': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-24': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-03-25': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-27': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-28': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-03-30': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-03-31': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-04-01': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-02': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-04-03': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-04': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-04-06': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-07': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-04-08': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-10': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-11': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-04-13': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-14': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-04-15': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-16': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-04-17': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-18': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-04-20': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-21': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-04-22': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-24': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-25': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-04-27': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-28': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-04-29': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-04-30': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-05-01': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-02': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-05-04': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-05': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-05-06': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-08': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-09': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-05-11': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-12': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-05-13': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-14': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-05-15': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-16': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-05-18': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-19': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-05-20': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-22': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-23': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-05-25': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-26': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-05-27': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-28': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-05-29': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-05-30': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-06-01': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-02': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-06-03': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-05': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-06': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-06-08': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-09': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-06-10': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-11': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-06-12': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-13': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-06-15': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-16': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-06-17': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-19': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-20': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-06-22': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-23': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-06-25': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-06-26': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-27': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-06-29': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-06-30': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-07-01': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-07-03': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-04': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-07-06': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-07': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-07-08': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-09': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-07-10': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-11': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-07-13': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-14': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-07-15': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-17': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-18': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-07-20': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-21': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-07-22': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-23': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-07-24': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-25': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-07-27': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-28': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-07-29': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-07-31': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-01': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-08-03': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-04': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-08-05': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-06': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-08-07': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-08': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-08-10': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-11': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-08-12': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-14': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-15': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-08-17': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-18': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-08-19': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-20': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-08-21': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-22': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-08-24': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-25': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-08-26': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-28': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-08-29': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-08-31': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-01': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-09-02': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-03': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-09-04': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-05': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-09-07': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-08': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-09-09': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-11': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-12': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-09-14': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-15': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-09-16': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-17': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-09-18': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-19': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-09-21': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-22': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-09-23': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-25': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-26': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-09-28': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-09-29': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-09-30': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-01': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-10-02': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-03': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-10-05': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-06': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-10-07': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-09': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-10': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-10-12': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-13': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-10-14': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-15': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-10-16': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-17': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-10-19': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-20': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-10-21': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-23': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-24': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-10-26': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-27': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-10-28': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-29': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-10-30': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-10-31': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-11-02': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-03': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-11-04': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-06': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-07': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-11-09': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-10': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-11-11': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-12': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-11-13': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-14': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-11-16': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-17': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-11-18': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-20': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-21': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-11-23': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-24': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-11-25': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-26': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-11-27': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-11-28': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-11-30': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-01': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-12-02': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-04': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-05': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-12-07': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-08': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-12-09': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-10': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-12-11': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-12': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-12-14': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-15': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-12-16': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-18': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-19': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-12-21': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-22': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-12-23': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-24': {
+                        modifier: 'resta',
+                        html: `<div class="font-semibold text-center text-gray-400">Resta</div>`
+                    },
+                    '2026-12-26': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-12-28': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                    '2026-12-29': {
+                        modifier: 'reciclable',
+                        html: `<div class="font-semibold text-center text-blue-700">Reciclable</div>`
+                    },
+                    '2026-12-30': {
+                        modifier: 'organic',
+                        html: `<div class="font-semibold text-center text-orange-800">Orgànic</div>`
+                    },
+                },
+            });
+            calendar.init();
+        });
+    </script>
+
+</body>
+</html>
